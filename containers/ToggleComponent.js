@@ -1,15 +1,35 @@
-import React, { PropTypes } from 'react'
+import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
+import { toggleComponent } from '../actions'
 
-const ToggleComponent = ({ text, toggle }) => (
-  <div> 
-    {toggle}
-    {text}
-  </div>
-)
+class ToggleComponent extends Component {
+  render() {
+    const { text, toggle } = this.props
+
+    if (toggle) {
+      return (
+        <div>
+          {text}
+        </div>
+
+      )
+    }
+  }
+}
 
 ToggleComponent.propTypes = {
   text: PropTypes.string.isRequired,
-  visible: PropTypes.bool.isRequired
+  toggle: PropTypes.bool.isRequired
 }
 
-export default ToggleComponent
+const mapStateToProps = (state) => {
+  return {
+    text: 'tdfgdfgdfggfgdf',
+    toggle: true
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { toggleComponent }
+)(ToggleComponent)
