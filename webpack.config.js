@@ -5,7 +5,7 @@ module.exports = {
     './index'
   ],
   output: {
-    path: path.join(__dirname, 'dis'),
+    path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
     publicPath: '/static/'
   },
@@ -13,7 +13,7 @@ module.exports = {
     loaders: [
       {
         test: /\.js$/,
-        loaders: [ 'babel' ],
+        loaders: ['babel?presets[]=es2015,presets[]=react'],
         exclude: /node_modules/,
         include: __dirname
       }
