@@ -1,4 +1,4 @@
-const component = (state, action) => {
+const component = (state = {}, action) => {
   switch (action.type) {
     case 'TOGGLE_COMPONENT':
       return {
